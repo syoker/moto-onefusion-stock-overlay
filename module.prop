@@ -1,0 +1,7 @@
+id=fix-official-firmware
+name=Fix Official Firmware
+version=v1.0.0
+versionCode=1
+author=Syoker
+description=This module fixes some things in the stock firmware of the Motorola One Fusion.
+updateJson=

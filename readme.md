@@ -16,3 +16,9 @@ This module fixes some things in the stock firmware of the Motorola One Fusion.
 
 ## Tested
 - Android 11 (RPLS31.Q2-63-10-2-9)
+
+## Differences
+![](/gitimages/image1.png)
+![](/gitimages/image2.png)
+![](/gitimages/image3.png)
+![](/gitimages/image4.png)

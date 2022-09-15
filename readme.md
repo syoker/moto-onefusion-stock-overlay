@@ -2,6 +2,9 @@
 
 This module fixes some things in the stock firmware of the Motorola One Fusion.
 > **NOTES:** Only for stock firmware of Motorola One Fusion.
+![License](https://img.shields.io/github/license/syoker/fix-official-firmware)
+![Release date](https://img.shields.io/github/release-date/syoker/fix-official-firmware)
+![Downloads](https://img.shields.io/github/downloads/syoker/fix-official-firmware/total)
 
 ## Content
 - Rounded corners of applications in their opening animation

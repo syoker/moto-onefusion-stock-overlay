@@ -68,6 +68,7 @@ on_install() {
     sleep 1
     mv $MODPATH/system/product/overlay/qpls30.apk $MODPATH/system/product/overlay/framework-res__auto_generated_rro_product.apk
     rm $MODPATH/system/product/overlay/rpls31.apk
+    rm $MODPATH/system/product/overlay/rpls31_1.apk
 
   else
 
@@ -83,6 +84,7 @@ on_install() {
       sleep 1
 
       mv $MODPATH/system/product/overlay/rpls31.apk $MODPATH/system/product/overlay/framework-res__auto_generated_rro_product.apk
+      mv $MODPATH/system/product/overlay/rpls31_1.apk $MODPATH/system/product/overlay/SystemUI__auto_generated_rro_product_sign.apk
       rm $MODPATH/system/product/overlay/qpls30.apk
 
       ui_print "• Do you want to apply changes to the launcher?"

@@ -66,9 +66,9 @@ on_install() {
     sleep 1
     ui_print "- Extracting module files"
     sleep 1
-    mv $MODPATH/system/product/overlay/qpls30.apk $MODPATH/system/product/overlay/framework-res__auto_generated_rro_product.apk
-    rm $MODPATH/system/product/overlay/rpls31.apk
-    rm $MODPATH/system/product/overlay/rpls31_1.apk
+    mv $MODPATH/system/product/overlay/qpls30_framework.apk $MODPATH/system/product/overlay/framework-res__auto_generated_rro_product.apk
+    rm $MODPATH/system/product/overlay/rpls31_framework.apk
+    rm $MODPATH/system/product/overlay/rpls31_systemui.apk
 
   else
 
@@ -83,9 +83,9 @@ on_install() {
       ui_print ""
       sleep 1
 
-      mv $MODPATH/system/product/overlay/rpls31.apk $MODPATH/system/product/overlay/framework-res__auto_generated_rro_product.apk
-      mv $MODPATH/system/product/overlay/rpls31_1.apk $MODPATH/system/product/overlay/SystemUI__auto_generated_rro_product.apk
-      rm $MODPATH/system/product/overlay/qpls30.apk
+      mv $MODPATH/system/product/overlay/rpls31_framework.apk $MODPATH/system/product/overlay/framework-res__auto_generated_rro_product.apk
+      mv $MODPATH/system/product/overlay/rpls31_systemui.apk $MODPATH/system/product/overlay/SystemUI__auto_generated_rro_product.apk
+      rm $MODPATH/system/product/overlay/qpls30_framework.apk
 
       ui_print "• Do you want to apply changes to the launcher?"
       ui_print "  Volume up(+): Yes"

@@ -7,18 +7,12 @@ REPLACE="
 "
 
 android_check() {
- if (( $API < 29 )); then
+ if (( $API < 29 || $API > 30)); then
     ui_print "• Sorry, support for Android 10 & 11 only."
     ui_print ""
     sleep 2
     exit 1
  fi
- if (( $API > 30 )); then
-    ui_print "• Sorry, support for Android 10 & 11 only."
-    ui_print ""
-    sleep 2
-    exit 1
-  fi
 }
 
 volume_keytest() {
@@ -44,10 +38,9 @@ volume_key() {
 
 print_modname() {
   ui_print ""
-  ui_print "•••••••••••••••••••••••••••••"
-  ui_print "    Fix Official Firmware"
-  ui_print "          for Astro"
-  ui_print "•••••••••••••••••••••••••••••"
+  ui_print "•••••••••••••••••••••••••••••••••••••••••"
+  ui_print "    Motorola One Fusion Stock Overlay"
+  ui_print "•••••••••••••••••••••••••••••••••••••••••"
   ui_print ""
   ui_print "• Module by Syoker"
   ui_print ""
@@ -60,58 +53,242 @@ on_install() {
 
   unzip -o "$ZIPFILE" 'system/*' -d $MODPATH >&2
 
-  if [[ $API == 29 ]]; then
+  case $API in
+    29)
+      ui_print "- Android 10 detected"
+      sleep 1
 
-    ui_print "- Android 10 detected"
-    sleep 1
-    ui_print "- Extracting module files"
-    sleep 1
-    mv $MODPATH/system/product/overlay/qpls30_framework.apk $MODPATH/system/product/overlay/framework-res__auto_generated_rro_product.apk
-    rm $MODPATH/system/product/overlay/rpls31_framework.apk
-    rm $MODPATH/system/product/overlay/rpls31_systemui.apk
-
-  else
-
-    if volume_keytest; then
-      ui_print "  Key test function complete"
-      ui_print ""
+      ui_print "- Extracting module files"
       sleep 2
 
-      ui_print "• Android 11 detected"
-      sleep 1
-      ui_print "• Extracting module files"
-      ui_print ""
-      sleep 1
-
-      mv $MODPATH/system/product/overlay/rpls31_framework.apk $MODPATH/system/product/overlay/framework-res__auto_generated_rro_product.apk
-      mv $MODPATH/system/product/overlay/rpls31_systemui.apk $MODPATH/system/product/overlay/SystemUI__auto_generated_rro_product.apk
-      rm $MODPATH/system/product/overlay/qpls30_framework.apk
-
-      ui_print "• Do you want to apply changes to the launcher?"
-      ui_print "  Volume up(+): Yes"
-      ui_print "  Volume down(-): No"
-
-      SELECT=volume_key
-    
-      if "$SELECT"; then
-        ui_print "  Removing changes to the launcher"
+      cp -f $MODPATH/system/product/overlay/overlay-quincetart-framework.apk $MODPATH/system/product/overlay/framework-res__auto_generated_rro_product.apk
+    ;;
+    30)
+      if volume_keytest; then
+        ui_print "  Key test function complete"
         ui_print ""
-        rm $MODPATH/system/system_ext/priv-app/Launcher3QuickStep/Launcher3QuickStep.apk
         sleep 2
+
+        ui_print "• Android 11 detected"
+        sleep 1
+
+        ui_print "• Extracting module files"
+        sleep 2
+
+        cp -f $MODPATH/system/product/overlay/overlay-rounded-corners.apk $MODPATH/system/product/overlay/RoundedCornersOverlay.apk
+
+        ui_print "  Done"
+        ui_print ""
+
+        SELECT=volume_key
+
+        ui_print "• Do you want to apply changes to the MotoLauncher?"
+        ui_print "  Volume up(+): Yes"
+        ui_print "  Volume down(-): No"
+
+        if "$SELECT"; then
+          ui_print "  Removing..."
+          ui_print ""
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        else
+          ui_print "  Applying..."
+
+          cp -f $MODPATH/system/product/overlay/overlay-oneline-appdraw.apk $MODPATH/system/product/overlay/OnelineAppdrawOverlay.apk
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        fi
+
+        ui_print "• Do you want to install Android 10/13 pillbar from AOSP?"
+        ui_print "  Volume up(+): Yes"
+        ui_print "  Volume down(-): No"
+
+        if "$SELECT"; then
+          ui_print "  Removing..."
+          ui_print ""
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        else
+          ui_print "  Which pillbar do you want?"
+          ui_print "  Volume up(+): Install pillbar"
+          ui_print "  Volume down(-): Another pillbar"
+          ui_print ""
+          while (true); do
+            ui_print "  1 - Android 10 pillbar"
+            if "$SELECT"; then
+              ui_print "  2 - Android 13 pillbar"
+              if "$SELECT"; then
+                ui_print ""
+              else
+                ui_print "      Installing..."
+              
+                mkdir -p $MODPATH/system/product/overlay/NavigationBarModeGestural
+                cp -f $MODPATH/system/product/overlay/overlay-navigationbarmodegestural-tiramisu.apk $MODPATH/system/product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
+                mkdir -p $MODPATH/system/product/overlay/NavigationHandleRadius
+                cp -f $MODPATH/system/product/overlay/overlay-navigationhandleradius-tiramisu.apk $MODPATH/system/product/overlay/NavigationHandleRadius/NavigationHandleRadiusOverlay.apk
+
+                sleep 2
+
+                ui_print "      Done"
+                ui_print ""
+              fi
+            else
+              ui_print "      Installing..."
+
+              mkdir -p $MODPATH/system/product/overlay/NavigationBarModeGestural
+              cp -f $MODPATH/system/product/overlay/overlay-navigationbarmodegestural-quincetart.apk $MODPATH/system/product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
+              mkdir -p $MODPATH/system/product/overlay/NavigationHandleRadius
+              cp -f $MODPATH/system/product/overlay/overlay-navigationhandleradius-quincetart.apk $MODPATH/system/product/overlay/NavigationHandleRadius/NavigationHandleRadiusOverlay.apk
+
+              sleep 2
+
+              ui_print "      Done"
+              ui_print ""
+            fi
+          done
+        fi
+
+        ui_print "• Do you want to install QuickSettings from AOSP?"
+        ui_print "  Volume up(+): Yes"
+        ui_print "  Volume down(-): No"
+
+        if "$SELECT"; then
+          ui_print "  Removing..."
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        else
+          ui_print "  Installing..."
+
+          cp -f $MODPATH/system/product/overlay/overlay-quicksettings.apk $MODPATH/system/product/overlay/QuickSettingsOverlay.apk
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        fi
+
+        ui_print "• Do you want to install QS ScreenRecord from AOSP?"
+        ui_print "  Volume up(+): Yes"
+        ui_print "  Volume down(-): No"
+
+        if "$SELECT"; then
+          ui_print "  Removing..."
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        else
+          ui_print "  Installing..."
+
+          cp -f $MODPATH/system/product/overlay/overlay-qs-screenrecord.apk $MODPATH/system/product/overlay/QuickSettingsScreenRecordOverlay.apk
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        fi
+
+        ui_print "• Do you want to install NavigationBar by Samsung?"
+        ui_print "  Volume up(+): Yes"
+        ui_print "  Volume down(-): No"
+
+        if "$SELECT"; then
+          ui_print "  Removing..."
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        else
+          ui_print "  Installing..."
+
+          cp -f $MODPATH/system/product/overlay/overlay-oneui-navbar.apk $MODPATH/system/product/overlay/NavigationBarOneUIOverlay.apk
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        fi
+
+        ui_print "• Do you want to add more AccentColors?"
+        ui_print "  Volume up(+): Yes"
+        ui_print "  Volume down(-): No"
+
+        if "$SELECT"; then
+          ui_print "  Removing..."
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        else
+          ui_print "  Installing..."
+
+          tar -xf $MODPATH/system/product/overlay/accent-colors.tar.xz -C $MODPATH/system/product/overlay/
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        fi
+
+        ui_print "• Do you want to install a new QS BrightnessSlider?"
+        ui_print "  Volume up(+): Yes"
+        ui_print "  Volume down(-): No"
+
+        if "$SELECT"; then
+          ui_print "  Removing..."
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        else
+          ui_print "  Installing..."
+
+          cp -f $MODPATH/system/product/overlay/overlay-qs-brightness-slider.apk $MODPATH/system/product/overlay/QuickSettingsBrightnessSliderOverlay.apk
+
+          sleep 2
+
+          ui_print "  Done"
+          ui_print ""
+        fi
+
       else
-        ui_print "  Applying changes to the launcher"
+        ui_print "  You have not pressed any key, aborting installation."
         ui_print ""
         sleep 2
+        exit 1
       fi
+    ;;
+  esac
 
-    else
-      ui_print "  You have not pressed any key, aborting installation."
-      ui_print ""
-      sleep 2
-      exit 1
-    fi
-  fi
   ui_print "- Deleting package cache"
+  rm $MODPATH/system/product/overlay/overlay-navigationbarmodegestural-quincetart.apk
+  rm $MODPATH/system/product/overlay/overlay-navigationbarmodegestural-tiramisu.apk
+  rm $MODPATH/system/product/overlay/overlay-navigationhandleradius-quincetart.apk
+  rm $MODPATH/system/product/overlay/overlay-navigationhandleradius-tiramisu.apk
+  rm $MODPATH/system/product/overlay/overlay-quincetart-framework.apk
+  rm $MODPATH/system/product/overlay/overlay-qs-brightness-slider.apk
+  rm $MODPATH/system/product/overlay/overlay-oneline-appdraw.apk
+  rm $MODPATH/system/product/overlay/overlay-qs-screenrecord.apk
+  rm $MODPATH/system/product/overlay/overlay-rounded-corners.apk
+  rm $MODPATH/system/product/overlay/overlay-quicksettings.apk
+  rm $MODPATH/system/product/overlay/overlay-oneui-navbar.apk
+  rm $MODPATH/system/product/overlay/accent-colors.tar.xz
   rm -rf /data/system/package_cache/*
 }
 

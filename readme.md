@@ -1,4 +1,4 @@
-# Fix Official Firmware for Astro
+# Motorola One Fusion Stock Overlay
 
 This module fixes and adds things to the official Motorola One Fusion firmware.
 > **NOTES:**
@@ -14,6 +14,7 @@ This module fixes and adds things to the official Motorola One Fusion firmware.
 **Android 10:**
 - Rounded corners of applications in their opening animation
 - Increased rounding of some buttons and the notification panel.
+
 **Android 11:**
 - Rounded corners of applications in their opening animation
 - Increased rounding of some buttons and the notification panel.

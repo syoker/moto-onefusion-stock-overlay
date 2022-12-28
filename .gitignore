@@ -1,1 +1,5 @@
 /build/
+/system/product/overlay/*.apk
+/system/product/overlay/*.tar.xz
+/temp/
+/wip/

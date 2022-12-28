@@ -2,8 +2,8 @@
 
 This module fixes and adds things to the official Motorola One Fusion firmware.
 > **NOTES:**
-> - Only for stock firmware of Motorola One Fusion.
 > - After installing the module and rebooting the device, if the changes aren't applied, reboot the device again.
+> - Only for stock firmware (A10 and A11) of Motorola One Fusion.
 > - You can choose what you want install.
 
 ![License](https://img.shields.io/github/license/syoker/moto-onefusion-stock-overlay)
@@ -25,10 +25,6 @@ This module fixes and adds things to the official Motorola One Fusion firmware.
 - AOSP screenrecording icon for quicksettings.
 - A new brightness slider.
 - More accent colors.
-
-## Compatibility
-- Android 11
-- Android 10
 
 ## Tested
 - Android 11 (RPLS31.Q2-63-10-2-9)

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- dimens -->    
+    <dimen name="navigation_home_handle_width">72.0dip</dimen>
+    <dimen name="navigation_handle_radius">1.0dip</dimen>
+    <dimen name="navigation_handle_bottom">6.0dip</dimen>
+
+</resources>

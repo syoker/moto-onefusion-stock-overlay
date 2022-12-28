@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!-- integers -->    
-    <integer name="quick_settings_max_rows">2</integer>
-
-</resources>

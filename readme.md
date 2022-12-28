@@ -22,7 +22,7 @@ This module fixes and adds things to the official Motorola One Fusion firmware.
 - Android 10 and 13 pillbar.
 - OneUI Navigation Bar.
 - AOSP QuickSettings (3x2).
-- AOSP screenrecording icon for quicksettings.
+- AOSP screenrecord icon for quicksettings.
 - A new brightness slider.
 - More accent colors.
 

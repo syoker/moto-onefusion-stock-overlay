@@ -6,6 +6,5 @@
     <dimen name="rounded_corner_radius_top">40.0dip</dimen>
     <dimen name="rounded_corner_radius_bottom">40.0dip</dimen>
     <dimen name="config_buttonCornerRadius">8.0dip</dimen>
-    <dimen name="config_dialogCornerRadius">8.0dip</dimen>
 
 </resources>

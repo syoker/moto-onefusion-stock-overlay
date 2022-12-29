@@ -1,5 +1,8 @@
 ## Changelog
 
+### v2.0.1
+- Increased rounded corners for dialogs, multitasking, volume control, notification panel, etc
+
 ### v2.0.0
 **NOTE:** Recommended uninstall the module and install it again.
 

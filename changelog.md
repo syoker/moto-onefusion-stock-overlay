@@ -1,6 +1,8 @@
 ## Changelog
 
 ### v2.0.0
+**NOTE:** Recommended uninstall the module and install it again.
+
 - Changed module name
 - Added two pillbars from AOSP (Android 10 and 13).
 - Added navigation bar from OneUI.

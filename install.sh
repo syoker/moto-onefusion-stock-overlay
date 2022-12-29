@@ -140,6 +140,7 @@ on_install() {
 
                 ui_print "      Done"
                 ui_print ""
+                break
               fi
             else
               ui_print "      Installing..."
@@ -153,6 +154,7 @@ on_install() {
 
               ui_print "      Done"
               ui_print ""
+              break
             fi
           done
         fi

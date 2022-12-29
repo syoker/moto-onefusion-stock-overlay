@@ -91,7 +91,7 @@ on_install() {
           ui_print "  Removing..."
           ui_print ""
 
-          rm $MODPATH/system/system_ext
+          rm $MODPATH/system/system_ext/
 
           sleep 2
 

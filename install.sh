@@ -75,6 +75,7 @@ on_install() {
         ui_print "• Extracting module files"
         sleep 2
 
+        cp -f $MODPATH/system/product/overlay/overlay-redvelvetcake-framework.apk $MODPATH/system/product/overlay/framework-res__auto_generated_rro_product.apk
         cp -f $MODPATH/system/product/overlay/overlay-rounded-corners.apk $MODPATH/system/product/overlay/RoundedCornersOverlay.apk
 
         ui_print "  Done"
@@ -283,6 +284,7 @@ on_install() {
   rm $MODPATH/system/product/overlay/overlay-navigationbarmodegestural-tiramisu.apk
   rm $MODPATH/system/product/overlay/overlay-navigationhandleradius-quincetart.apk
   rm $MODPATH/system/product/overlay/overlay-navigationhandleradius-tiramisu.apk
+  rm $MODPATH/system/product/overlay/overlay-redvelvetcake-framework.apk
   rm $MODPATH/system/product/overlay/overlay-quincetart-framework.apk
   rm $MODPATH/system/product/overlay/overlay-qs-brightness-slider.apk
   rm $MODPATH/system/product/overlay/overlay-oneline-appdraw.apk

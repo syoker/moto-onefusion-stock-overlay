@@ -89,7 +89,6 @@ on_install() {
 
         if "$SELECT"; then
           ui_print "  Removing..."
-          ui_print ""
 
           rm $MODPATH/system/system_ext/
 
@@ -114,7 +113,6 @@ on_install() {
 
         if "$SELECT"; then
           ui_print "  Removing..."
-          ui_print ""
 
           sleep 2
 

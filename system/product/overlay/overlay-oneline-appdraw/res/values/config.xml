@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- bools -->    
+    <!-- bools -->
     <bool name="is_language_support_two_lines_text">false</bool>
 
 </resources>

@@ -1,5 +1,8 @@
 ## Changelog
 
+### v2.1.0
+- Added rounded corners to the search box in the appdraw.
+
 ### v2.0.1
 - Increased rounded corners for dialogs, multitasking, volume control, notification panel, etc
 

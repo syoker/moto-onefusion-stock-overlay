@@ -19,6 +19,7 @@ This module fixes and adds things to the official Motorola One Fusion firmware.
 - Rounded corners of applications in their opening animation
 - Increased rounding of some buttons and the notification panel.
 - In the stock launcher, the name of the applications in the drawer will now have only 1 line.
+- Rounded corners in the appdraw search box.
 - Android 10 and 13 pillbar.
 - OneUI Navigation Bar.
 - AOSP QuickSettings (3x2).

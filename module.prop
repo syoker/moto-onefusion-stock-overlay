@@ -1,7 +1,7 @@
 id=moto-onefusion-stock-overlay
 name=Motorola One Fusion Stock Overlay
-version=v2.0.1
-versionCode=5
+version=v2.1.0
+versionCode=6
 author=Syoker
 description=This module fixes and adds things to the official Motorola One Fusion firmware.
 updateJson=https://raw.githubusercontent.com/Syoker/moto-onefusion-stock-overlay/main/update.json

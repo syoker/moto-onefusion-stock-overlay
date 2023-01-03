@@ -1,2 +1,2 @@
 ### v2.0.1
-- Increased rounded corners for dialogs, multitasking, volume control, notification panel, etc
+- Added rounded corners to the search box in the appdraw.
